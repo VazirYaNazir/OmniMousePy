@@ -34,7 +34,8 @@ def handle_command(data):
         0: "Left Click",
         1: "Right Click",
         2: "Scroll Down",
-        3: "Scroll Up"
+        3: "Scroll Up",
+        4: "Reset"
     }
 
     if data in commands:
@@ -47,6 +48,9 @@ def handle_command(data):
             pyautogui.scroll(10)
         elif data == 3:
             pyautogui.scroll(-10)
+        elif data == 4:
+            screen_width, screen_height = pyautogui.size()
+            pyautogui.moveTo(screen_width / 2, screen_height / 2)
         return jsonify({"message": f"{commands[data]} received"}), 200
     else:
         return jsonify({"error": "Invalid command"}), 400

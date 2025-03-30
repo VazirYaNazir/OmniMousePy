@@ -256,7 +256,9 @@ class MainWindow(QMainWindow):
         self.main_layout.addWidget(self.content_widget, stretch=3)
 
     def _side_bar_atr_(self):
-        """Create a sidebar with multiple filler buttons (left side)."""
+        """
+        Create a sidebar with multiple filler buttons (left side).
+        """
         self.sidebar_widget = QWidget()
         self.sidebar_layout = QVBoxLayout(self.sidebar_widget)
         self.sidebar_widget.setStyleSheet("background-color: #3a3f42;")
