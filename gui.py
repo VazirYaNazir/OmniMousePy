@@ -5,7 +5,7 @@ from PyQt6.QtWidgets import (
     QWidget, QHBoxLayout, QLabel, QPlainTextEdit
 )
 from PyQt6.QtGui import QScreen
-
+import flaskServer
 
 
 app = QApplication(sys.argv)
@@ -280,6 +280,7 @@ class MainWindow(QMainWindow):
         self.main_layout.insertWidget(0, self.sidebar_widget, stretch=1)
 
 def run():
+    flaskServer.run_server()
     window = MainWindow()
     window.show()
     sys.exit(app.exec())

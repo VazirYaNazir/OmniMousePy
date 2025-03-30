@@ -61,5 +61,6 @@ def handle_movement(data):
     else:
         return jsonify({"error": "Invalid dx or dy values"}), 400
 
-app.run(host="0.0.0.0", port=5000)
+def run_server():
+    app.run(host="0.0.0.0", port=5000)
 
