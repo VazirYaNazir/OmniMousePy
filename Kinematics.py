@@ -16,8 +16,8 @@ def adjust_mouse(adjusted_roll, adjusted_pitch) -> None:
 
     last_update_time = current_time
 
-    roll_sens = 0.5
-    pitch_sens = 0.5
+    roll_sens = 0.25
+    pitch_sens = 0.25
 
     max_pitch = 50.0
     max_roll = 50.0
@@ -25,8 +25,8 @@ def adjust_mouse(adjusted_roll, adjusted_pitch) -> None:
     normalized_pitch = max(-1, min(1, adjusted_pitch / max_pitch)) * pitch_sens
     normalized_roll = max(-1, min(1, adjusted_roll / max_roll)) * roll_sens
 
-    target_x += normalized_roll * 10
-    target_y += normalized_pitch * 10
+    target_x += normalized_roll * 25
+    target_y += normalized_pitch * 25
 
     screen_width, screen_height = pyautogui.size()
     target_x = max(0, min(screen_width - 1, int(target_x)))
@@ -44,9 +44,9 @@ def adjust_mouse(adjusted_roll, adjusted_pitch) -> None:
     elif distance > 50:
         smooth_factor = 5
     elif distance > 20:
-        smooth_factor = 2
+        smooth_factor = 3
     else:
-        smooth_factor = 1
+        smooth_factor = 2
 
     rel_x //= smooth_factor
     rel_y //= smooth_factor
